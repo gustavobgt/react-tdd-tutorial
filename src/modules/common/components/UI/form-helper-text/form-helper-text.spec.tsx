@@ -2,7 +2,7 @@ import { render, screen } from '@/tests';
 
 import { FormHelperText } from '.';
 
-const defaulterrorMessage = '';
+const defaultErrorMessage = '';
 const errorMessage = 'A senha é obrigatória';
 
 // Test id sempre só deve ser utilizado como último recurso disponível
@@ -24,14 +24,14 @@ describe('<FormHelperText />', () => {
 
 	it('It should not display error message when error is empty', () => {
 		render(
-			<FormHelperText error={!!defaulterrorMessage}>
-				{defaulterrorMessage}
+			<FormHelperText error={!!defaultErrorMessage}>
+				{defaultErrorMessage}
 			</FormHelperText>,
 		);
 
 		const helperText = screen.getByTestId('form-helper-text-component');
 
-		expect(helperText).toHaveTextContent(defaulterrorMessage);
+		expect(helperText).toHaveTextContent(defaultErrorMessage);
 	});
 
 	it('It should display error message when error is truthy', () => {
