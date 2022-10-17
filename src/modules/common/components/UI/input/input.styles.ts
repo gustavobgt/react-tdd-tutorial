@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	background-color: rgb(32 32 36 / 1);
-
 	padding-left: 1.2rem;
 	padding-right: 1.2rem;
 	padding-top: 1.6rem;
@@ -26,6 +25,7 @@ const Input = styled.input`
 
 const Label = styled.label`
 	font-size: 1.6rem;
+	margin-bottom: 0.4rem;
 `;
 
 export default {
