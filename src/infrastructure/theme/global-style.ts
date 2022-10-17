@@ -9,16 +9,13 @@ export default createGlobalStyle`
   }
 
   html, #root {
-    -webkit-font-smoothing: antialiased;
-    scroll-behavior: smooth;
-    font-family: ${({ theme }) => theme.fonts.body1}, ${({ theme }) =>
-	theme.fonts.monospace};
+    font-family: 'Roboto', sans-serif;
     font-size: 62.5%;
   }
 
   body {
-    font-size: ${({ theme }) => theme.fontSizes.body1.desktop};
-    color: ${({ theme }) => theme.pallete.common.black};
+    font-size: 1.6rem;
+    color: #ffffff;
   }
 
   button {
