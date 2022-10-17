@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithRef } from 'react';
 import { FlattenSimpleInterpolation } from 'styled-components';
 
 type InputTokens = {
@@ -15,6 +15,6 @@ export type InputContextType = {
 	adornmentStyles: FlattenSimpleInterpolation;
 } | null;
 
-export type InputProps = InputTokens & ComponentPropsWithoutRef<'input'>;
+export type InputProps = InputTokens & ComponentPropsWithRef<'input'>;
 
-export type InputLabelProps = ComponentPropsWithoutRef<'label'>;
+export type InputLabelProps = ComponentPropsWithRef<'label'>;

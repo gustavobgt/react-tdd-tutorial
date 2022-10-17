@@ -1,6 +1,7 @@
 import { TextField, TextFieldHandle } from '@/modules/common/components';
+import { Button } from '@/modules/common/components/UI';
 import { useRef, useEffect } from 'react';
-import { MdPerson } from 'react-icons/md';
+import { MdPerson, MdLock } from 'react-icons/md';
 
 export const SignInView = () => {
 	const fieldRef = useRef<TextFieldHandle>(null);
@@ -17,16 +18,30 @@ export const SignInView = () => {
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
+				flexDirection: 'column',
 			}}
 		>
-			<TextField
-				placeholder="Type your e-mail adress"
-				label="Senha"
-				ref={fieldRef}
-				startAdornment={<MdPerson fontSize={24} />}
-				error
-				helperText="A senha é obrigatoria"
-			/>
+			<form>
+				<TextField
+					placeholder="Type your e-mail adress"
+					label="E-mail"
+					ref={fieldRef}
+					startAdornment={<MdPerson fontSize={24} />}
+					error
+					helperText="O e-mail é obrigatorio"
+				/>
+
+				<TextField
+					placeholder="Type your password"
+					label="Senha"
+					ref={fieldRef}
+					startAdornment={<MdLock fontSize={24} />}
+					error
+					helperText="A senha é obrigatoria"
+				/>
+
+				<Button>Entrar</Button>
+			</form>
 		</section>
 	);
 };
