@@ -37,7 +37,7 @@ describe('<Input/>', () => {
 
 		await userEvent.type(input, inputText);
 
-		expect(onChange).toHaveBeenCalled;
+		expect(onChange).toHaveBeenCalled();
 
 		expect(input).toHaveValue(inputText);
 	});
@@ -55,7 +55,7 @@ describe('<Input/>', () => {
 
 		await userEvent.type(input, inputText);
 
-		expect(onChange).not.toHaveBeenCalled;
+		expect(onChange).not.toHaveBeenCalled();
 		expect(input).toHaveValue('');
 	});
 
