@@ -42,9 +42,16 @@ const _TextFieldComponent: ForwardRefRenderFunction<
 				</Input.Label>
 			)}
 
-			<Input id={id} ref={inputRef} {...rest} {...InputProps} />
+			<Input
+				id={id}
+				ref={inputRef}
+				aria-describedby={`${id}-helper-text`}
+				{...rest}
+				{...InputProps}
+			/>
 
 			<FormHelperText
+				id={`${id}-helper-text`}
 				ref={helperRef}
 				error={error}
 				{...FormHelperTextProps}

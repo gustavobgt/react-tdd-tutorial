@@ -1,5 +1,5 @@
 const USERNAME_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const USERNAME_HELPER =
+export const USERNAME_HELPER =
 	'De 4 a 24 caracteres. Deve começar com uma letra. É permitido letras, números, underlines e hífens.';
 
 export const usernameValidation = (username: string) => {

@@ -10,7 +10,6 @@ import S from './sign-up-form.styles';
 
 export const SignUpFormComponent = () => {
 	const {
-		success,
 		refs,
 		values,
 		errors,
@@ -18,6 +17,8 @@ export const SignUpFormComponent = () => {
 		touched,
 		focused,
 		isValid,
+		success,
+		loading,
 		handleChange,
 		handleFocus,
 		handleBlur,
@@ -27,6 +28,14 @@ export const SignUpFormComponent = () => {
 	return (
 		<S.Section>
 			{(() => {
+				if (loading) {
+					return (
+						<>
+							<S.Title>Carregando...</S.Title>
+						</>
+					);
+				}
+
 				if (success) {
 					return (
 						<>
@@ -69,6 +78,7 @@ export const SignUpFormComponent = () => {
 									</Label>
 								}
 								startAdornment={<MdPerson fontSize={24} />}
+								autoComplete="off"
 							/>
 
 							<TextField
@@ -93,6 +103,7 @@ export const SignUpFormComponent = () => {
 									</Label>
 								}
 								startAdornment={<MdEmail fontSize={24} />}
+								autoComplete="off"
 							/>
 
 							<TextField
@@ -150,7 +161,7 @@ export const SignUpFormComponent = () => {
 								startAdornment={<MdLock fontSize={24} />}
 							/>
 
-							<Button disabled={!isValid}>Entrar</Button>
+							<Button disabled={!isValid}>Cadastrar</Button>
 						</S.Form>
 					</>
 				);

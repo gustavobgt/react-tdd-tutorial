@@ -53,6 +53,7 @@ export const useSignUpForm = () => {
 	const [touched, setTouched] = useState(initialBooleanValues);
 	const [focused, setFocused] = useState(initialBooleanValues);
 	const [success, setSuccess] = useState(false);
+	const [loading, setLoading] = useState(false);
 
 	const isValid = Object.values(valid).every(value => value === true);
 	const refs = {
@@ -119,6 +120,7 @@ export const useSignUpForm = () => {
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		setLoading(true);
 
 		try {
 			// TODO: API request
@@ -140,6 +142,8 @@ export const useSignUpForm = () => {
 			if (formErrorRef.current) {
 				formErrorRef?.current.focus();
 			}
+		} finally {
+			setLoading(false);
 		}
 	};
 
@@ -156,6 +160,7 @@ export const useSignUpForm = () => {
 		focused,
 		isValid,
 		success,
+		loading,
 		handleChange,
 		handleFocus,
 		handleBlur,
