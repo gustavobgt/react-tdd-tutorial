@@ -179,6 +179,15 @@ describe('<SignUpForm/> behavior after validation', () => {
 		await userEvent.type(confirmPasswordField, 'Teste*123');
 
 		const submitButton = screen.getByRole('button', { name: /Cadastrar/i });
-		expect(submitButton).toBeEnabled();
+
+		await userEvent.click(submitButton);
+
+		const loadingTitle = screen.getByRole('progressbar');
+		expect(loadingTitle).toBeInTheDocument();
+
+		const sucessTitle = await screen.findByText(/Sucesso!/i);
+		const redirectLink = screen.getByRole('link');
+		expect(sucessTitle).toBeInTheDocument();
+		expect(redirectLink).toBeInTheDocument();
 	});
 });

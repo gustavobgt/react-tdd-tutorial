@@ -1,3 +1,4 @@
+import { Link as RTDLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Section = styled.section`
@@ -29,9 +30,18 @@ const Label = styled.div`
 	gap: 0.4rem;
 `;
 
+const Link = styled(RTDLink)`
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.6rem;
+`;
+
 export default {
 	Section,
 	Title,
 	Form,
 	Label,
+	Link,
 };

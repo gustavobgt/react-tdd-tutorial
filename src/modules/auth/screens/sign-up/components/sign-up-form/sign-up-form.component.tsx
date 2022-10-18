@@ -2,7 +2,6 @@ import { AUTH_SCREEN } from '@/infrastructure/navigation';
 import { TextField } from '@/modules/common/components';
 import { Button, FormHelperText } from '@/modules/common/components/UI';
 import { MdEmail, MdPerson, MdLock } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 
 import { Label } from './components';
 import { useSignUpForm } from './hooks';
@@ -31,7 +30,7 @@ export const SignUpFormComponent = () => {
 				if (loading) {
 					return (
 						<>
-							<S.Title>Carregando...</S.Title>
+							<S.Title role="progressbar">Carregando...</S.Title>
 						</>
 					);
 				}
@@ -40,7 +39,9 @@ export const SignUpFormComponent = () => {
 					return (
 						<>
 							<S.Title>Sucesso!</S.Title>
-							<Link to={AUTH_SCREEN.SIGN_IN}>Sign In</Link>
+							<S.Link to={AUTH_SCREEN.SIGN_IN}>
+								Ir para o Login!
+							</S.Link>
 						</>
 					);
 				}

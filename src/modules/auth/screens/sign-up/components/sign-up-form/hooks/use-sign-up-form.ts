@@ -40,6 +40,21 @@ const initialBooleanValues = {
 	confirmPassword: false,
 };
 
+type Response = {
+	data: {
+		status: string;
+	};
+};
+
+const apiRequest = () => {
+	const response = {
+		data: {
+			status: 'ok',
+		},
+	};
+	return new Promise<Response>(res => setTimeout(() => res(response), 500));
+};
+
 export const useSignUpForm = () => {
 	const usernameRef = useRef<TextFieldHandle>(null);
 	const emailRef = useRef<TextFieldHandle>(null);
@@ -117,16 +132,18 @@ export const useSignUpForm = () => {
 		setFocused(prevState => ({ ...prevState, [name]: false }));
 	};
 
-	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setLoading(true);
 
 		try {
-			// TODO: API request
-			setSuccess(true);
-			setValues(initialValues);
+			const res = await apiRequest();
+
+			if (res.data.status === 'ok') {
+				setSuccess(true);
+				setValues(initialValues);
+			}
 		} catch (err: any) {
-			//TODO: Tipar error response
 			let error = '';
 			if (!err?.response) {
 				error = 'No Server Response';
