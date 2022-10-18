@@ -185,6 +185,12 @@ describe('<SignUpForm/> behavior after validation', () => {
 		const loadingTitle = screen.getByRole('progressbar');
 		expect(loadingTitle).toBeInTheDocument();
 
+		/**
+		 * Several utilities are provided for dealing with asynchronous code.
+		 * These can be useful to wait for an element to appear or disappear
+		 * in response to an event, user action, timeout, or Promise.
+		 * (See the guide to testing disappearance.)
+		 */
 		const sucessTitle = await screen.findByText(/Sucesso!/i);
 		const redirectLink = screen.getByRole('link');
 		expect(sucessTitle).toBeInTheDocument();
