@@ -87,9 +87,8 @@ export const useSignUpForm = () => {
 		setValues(prevState => ({ ...prevState, [name]: value }));
 		setErrors(prevState => ({ ...prevState, form: '' }));
 
-		handleValidation(name as SignUpFormValueStrings, value); //TODO: Tentar tirar esses as
+		handleValidation(name as SignUpFormValueStrings, value);
 
-		//TODO: Tentar refatorar isso
 		if (name === 'confirmPassword') {
 			handleValidation(
 				name as SignUpFormValueStrings,
@@ -97,7 +96,7 @@ export const useSignUpForm = () => {
 				values.password,
 			);
 		} else {
-			handleValidation(name as SignUpFormValueStrings, value); //TODO: Tentar tirar esses as
+			handleValidation(name as SignUpFormValueStrings, value);
 		}
 
 		if (name === 'password' && values.confirmPassword) {
